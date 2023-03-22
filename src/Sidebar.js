@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DonutLargeIcon from "@mui/icons-material/DonutLargeTwoTone";
 import ChatIcon from "@mui/icons-material/ChatTwoTone";
 import MoreIcon from "@mui/icons-material/MoreVertTwoTone";
@@ -8,8 +7,10 @@ import { IconButton } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
+  const [{user}] = useStateValue();
   useEffect(() => {
     const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
       setRooms(
@@ -26,7 +27,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <AccountCircleIcon />
+        <img src={user?.photoURL} alt="user" />
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutLargeIcon />

@@ -14,3 +14,9 @@
   border-radius: 10px;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
 }
+.banner__text{
+  display: flex;
+  align-items: center;
+  margin-left: 30%;
+  color: gray;
+}

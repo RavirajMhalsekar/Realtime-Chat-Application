@@ -13,7 +13,10 @@
     border-right: 1px solid lightgray;
     align-items: center;
 }
-
+.sidebar__header img{
+    border-radius: 50%;
+    width: 35px;
+}
 .sidebar__search {
     display: flex;
     align-items: center;
